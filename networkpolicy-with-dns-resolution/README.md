@@ -9,3 +9,7 @@ helm template --enable-dns .
 ```bash
 helm template --enable-dns --set hostname=${YOURHOSTNAME} .
 ```
+
+## Read my Blog article about DNS resolution in Helm
+
+https://blog.knell.it/get-rid-of-hard-coded-ips-in-your-helm-charts/
