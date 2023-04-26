@@ -1,0 +1,10 @@
+---
+apiVersion: v2
+name: networkpolicy-with-dns-resolution
+description: A simple example showing the usage of DNS resolution in Helm Templates
+type: application
+version: 0.0.1
+home: https://github.com/christianknell/helm-templates
+maintainers:
+  - name: christianknell
+    email: christian@knell.it

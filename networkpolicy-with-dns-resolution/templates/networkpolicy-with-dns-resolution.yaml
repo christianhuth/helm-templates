@@ -1,0 +1,13 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: networkpolicy-with-dns-resolution
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: {{ printf "%s/%s" (.Values.hostname | getHostByName) "32" | quote }}
