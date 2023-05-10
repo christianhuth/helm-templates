@@ -13,11 +13,11 @@ spec:
         image: <IMAGE_REGISTRY>/<IMAGE_REPOSITORY>:<IMAGE:TAG>
         ports:
         - name: http-metrics
-            containerPort: {{ .Values.metrics.service.port }}
+            containerPort: {{ "{{ .Values.metrics.service.port }}" }}
             protocol: TCP
 ```
 
-> **_IMPORTANT:_** Make sure to set the default value of `metrics.service.port` to your specific port used to expose your metrics.
+> **IMPORTANT:** Make sure to set the default value of `metrics.service.port` to your specific port used to expose your metrics.
 
 ## Content
 
@@ -28,7 +28,7 @@ The examples consist of [Named Templates](./templates/_helpers.tpl), that are us
 - [Service](./templates/metrics/service.yaml)
 - [ServiceMonitor](./templates/metrics/servicemonitor.yaml)
 
-> **_IMPORTANT:_** Rename the Named Templates from `mychart.` to the name of your Helm chart.
+> **IMPORTANT:** Rename the Named Templates from `mychart.` to the name of your Helm chart.
 
 ## See created resources
 
