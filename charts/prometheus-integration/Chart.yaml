@@ -1,0 +1,10 @@
+---
+apiVersion: v2
+name: prometheus-integration
+description: The different resources (Service, PodMonitor, PrometheusRule and ServiceMonitor) used by Prometheus to scrape a target
+type: application
+version: 0.0.1
+home: https://github.com/christianknell/helm-templates
+maintainers:
+  - name: christianknell
+    email: christian@knell.it

@@ -1,0 +1,55 @@
+# Scope
+
+These examples don't show how to create a metrics endpoint in your application. It assumes that your Application already exposes metrics on a port called http-metrics, like this:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: <POD_NAME>
+spec:
+    containers:
+    - name: <CONTAINER_NAME>
+        image: <IMAGE_REGISTRY>/<IMAGE_REPOSITORY>:<IMAGE:TAG>
+        ports:
+        - name: http-metrics
+            containerPort: {{ .Values.metrics.service.port }}
+            protocol: TCP
+```
+
+> **_IMPORTANT:_** Make sure to set the default value of `metrics.service.port` to your specific port used to expose your metrics.
+
+## Content
+
+The examples consist of [Named Templates](./templates/_helpers.tpl), that are used in Templates for the following resources:
+
+- [PodMonitor](./templates/metrics/podmonitor.yaml)
+- [PrometheusRule](./templates/metrics/prometheusrule.yaml)
+- [Service](./templates/metrics/service.yaml)
+- [ServiceMonitor](./templates/metrics/servicemonitor.yaml)
+
+> **_IMPORTANT:_** Rename the Named Templates from `mychart.` to the name of your Helm chart.
+
+## See created resources
+
+To see the created resources, run the following command:
+
+```
+helm template -f values.yaml --set metrics.enabled=true .
+```
+
+By default no PodMonitor will be created as this is usually not needed. To see this resource as well run:
+
+```
+helm template -f values.yaml --set metrics.enabled=true --set metrics.podmonitor.enabled=true .
+```
+
+## Read my Blog article about the concepts behind these Templates
+
+https://blog.knell.it/making-your-helm-chart-observable-by-prometheus
+
+## Provided values
+
+{{ template "chart.valuesSection" . }}
+
+{{ template "helm-docs.versionFooter" . }}
