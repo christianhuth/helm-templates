@@ -10,4 +10,4 @@ These templates are provided as-is with no warranties.
 
 | Template Description                                                            | Blog article                                                        |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [NetworkPolicy with DNS resolution](./charts/networkpolicy-with-dns-resolution) | https://blog.knell.it/get-rid-of-hard-coded-ips-in-your-helm-charts |
+| [NetworkPolicy with DNS resolution](./charts/networkpolicy-with-dns-resolution) | [Get rid of hard-coded IPs in your Helm charts](https://blog.knell.it/get-rid-of-hard-coded-ips-in-your-helm-charts) |
