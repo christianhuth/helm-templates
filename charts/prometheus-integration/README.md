@@ -52,36 +52,36 @@ https://blog.knell.it/making-your-helm-chart-observable-by-prometheus
 
 ## Values
 
-| Key                                      | Type   | Default                                                                                     | Description                                                                                |
-| ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| metrics.enabled                          | bool   | `false`                                                                                     | enable the Prometheus                                                                      |
-| metrics.podMonitor.additionalLabels      | object | `{}`                                                                                        | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus      |
-| metrics.podMonitor.enabled               | bool   | `false`                                                                                     | Create PodMonitor Resource for scraping metrics using Prometheus Operator                  |
-| metrics.podMonitor.honorLabels           | bool   | `false`                                                                                     | Specify honorLabels parameter to add the scrape endpoint                                   |
-| metrics.podMonitor.interval              | string | `"30s"`                                                                                     | Interval at which metrics should be scraped.                                               |
-| metrics.podMonitor.jobLabel              | string | `""`                                                                                        | The name of the label on the target service to use as the job name in Prometheus           |
-| metrics.podMonitor.metricRelabelings     | object | `{}`                                                                                        | MetricRelabelConfigs to apply to samples before ingestion                                  |
-| metrics.podMonitor.namespace             | string | `""`                                                                                        | Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)              |
-| metrics.podMonitor.relabelings           | object | `{}`                                                                                        | RelabelConfigs to apply to samples before scraping                                         |
-| metrics.podMonitor.scrapeTimeout         | string | `""`                                                                                        | Timeout after which the scrape is ended                                                    |
-| metrics.podMonitor.selector              | object | `{}`                                                                                        | Prometheus instance selector labels                                                        |
-| metrics.prometheusRule.additionalLabels  | object | `{}`                                                                                        | Additional labels that can be used so PrometheusRule will be discovered by Prometheus      |
-| metrics.prometheusRule.enabled           | bool   | `false`                                                                                     | Create a PrometheusRule for Prometheus Operator                                            |
-| metrics.prometheusRule.namespace         | string | `""`                                                                                        | Namespace for the PrometheusRule Resource (defaults to the Release Namespace)              |
-| metrics.prometheusRule.rules             | list   | `[]`                                                                                        | PrometheusRule definitions                                                                 |
-| metrics.service.annotations              | object | `{"prometheus.io/port":"{{ .Values.metrics.service.port }}","prometheus.io/scrape":"true"}` | Annotations for Prometheus to auto-discover the metrics endpoint                           |
-| metrics.service.port                     | int    | `9095`                                                                                      | Prometheus Exporter service port                                                           |
-| metrics.service.sessionAffinity          | string | `"None"`                                                                                    | Control where client requests go, to the same pod or round-robin. Values: ClientIP or None |
-| metrics.serviceMonitor.additionalLabels  | object | `{}`                                                                                        | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus      |
-| metrics.serviceMonitor.enabled           | bool   | `true`                                                                                      | Create ServiceMonitor Resource for scraping metrics using Prometheus Operator              |
-| metrics.serviceMonitor.honorLabels       | bool   | `false`                                                                                     | Specify honorLabels parameter to add the scrape endpoint                                   |
-| metrics.serviceMonitor.interval          | string | `"30s"`                                                                                     | Interval at which metrics should be scraped.                                               |
-| metrics.serviceMonitor.jobLabel          | string | `""`                                                                                        | The name of the label on the target service to use as the job name in Prometheus           |
-| metrics.serviceMonitor.metricRelabelings | object | `{}`                                                                                        | MetricRelabelConfigs to apply to samples before ingestion                                  |
-| metrics.serviceMonitor.namespace         | string | `""`                                                                                        | Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)              |
-| metrics.serviceMonitor.relabelings       | object | `{}`                                                                                        | RelabelConfigs to apply to samples before scraping                                         |
-| metrics.serviceMonitor.scrapeTimeout     | string | `""`                                                                                        | Timeout after which the scrape is ended                                                    |
-| metrics.serviceMonitor.selector          | object | `{}`                                                                                        | Prometheus instance selector labels                                                        |
+| Key                                      | Type   | Default                          | Description                                                                                |
+| ---------------------------------------- | ------ | -------------------------------- | ------------------------------------------------------------------------------------------ |
+| metrics.enabled                          | bool   | `false`                          | enable the Prometheus                                                                      |
+| metrics.podMonitor.additionalLabels      | object | `{}`                             | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus      |
+| metrics.podMonitor.enabled               | bool   | `false`                          | Create PodMonitor Resource for scraping metrics using Prometheus Operator                  |
+| metrics.podMonitor.honorLabels           | bool   | `false`                          | Specify honorLabels parameter to add the scrape endpoint                                   |
+| metrics.podMonitor.interval              | string | `"30s"`                          | Interval at which metrics should be scraped.                                               |
+| metrics.podMonitor.jobLabel              | string | `""`                             | The name of the label on the target service to use as the job name in Prometheus           |
+| metrics.podMonitor.metricRelabelings     | object | `{}`                             | MetricRelabelConfigs to apply to samples before ingestion                                  |
+| metrics.podMonitor.namespace             | string | `""`                             | Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)              |
+| metrics.podMonitor.relabelings           | object | `{}`                             | RelabelConfigs to apply to samples before scraping                                         |
+| metrics.podMonitor.scrapeTimeout         | string | `""`                             | Timeout after which the scrape is ended                                                    |
+| metrics.podMonitor.selector              | object | `{}`                             | Prometheus instance selector labels                                                        |
+| metrics.prometheusRule.additionalLabels  | object | `{}`                             | Additional labels that can be used so PrometheusRule will be discovered by Prometheus      |
+| metrics.prometheusRule.enabled           | bool   | `false`                          | Create a PrometheusRule for Prometheus Operator                                            |
+| metrics.prometheusRule.namespace         | string | `""`                             | Namespace for the PrometheusRule Resource (defaults to the Release Namespace)              |
+| metrics.prometheusRule.rules             | list   | `[]`                             | PrometheusRule definitions                                                                 |
+| metrics.service.annotations              | object | see [values.yaml](./values.yaml) | Annotations for Prometheus to auto-discover the metrics endpoint                           |
+| metrics.service.port                     | int    | `9095`                           | Prometheus Exporter service port                                                           |
+| metrics.service.sessionAffinity          | string | `"None"`                         | Control where client requests go, to the same pod or round-robin. Values: ClientIP or None |
+| metrics.serviceMonitor.additionalLabels  | object | `{}`                             | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus      |
+| metrics.serviceMonitor.enabled           | bool   | `true`                           | Create ServiceMonitor Resource for scraping metrics using Prometheus Operator              |
+| metrics.serviceMonitor.honorLabels       | bool   | `false`                          | Specify honorLabels parameter to add the scrape endpoint                                   |
+| metrics.serviceMonitor.interval          | string | `"30s"`                          | Interval at which metrics should be scraped.                                               |
+| metrics.serviceMonitor.jobLabel          | string | `""`                             | The name of the label on the target service to use as the job name in Prometheus           |
+| metrics.serviceMonitor.metricRelabelings | object | `{}`                             | MetricRelabelConfigs to apply to samples before ingestion                                  |
+| metrics.serviceMonitor.namespace         | string | `""`                             | Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)              |
+| metrics.serviceMonitor.relabelings       | object | `{}`                             | RelabelConfigs to apply to samples before scraping                                         |
+| metrics.serviceMonitor.scrapeTimeout     | string | `""`                             | Timeout after which the scrape is ended                                                    |
+| metrics.serviceMonitor.selector          | object | `{}`                             | Prometheus instance selector labels                                                        |
 
 ---
 

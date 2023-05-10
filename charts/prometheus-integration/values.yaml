@@ -20,6 +20,7 @@ metrics:
       #     severity: warning
   service:
     # -- Annotations for Prometheus to auto-discover the metrics endpoint
+    # @default -- see [values.yaml](./values.yaml)
     annotations:
       prometheus.io/scrape: "true"
       prometheus.io/port: "{{ .Values.metrics.service.port }}"
