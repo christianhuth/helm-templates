@@ -22,7 +22,7 @@ spec:
       metricRelabelings:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      path: /metrics
+      path: {{ .Values.metrics.podMonitor.path | quote }}
       {{- with .Values.metrics.podMonitor.relabelings }}
       relabelings:
         {{- toYaml . | nindent 8 }}

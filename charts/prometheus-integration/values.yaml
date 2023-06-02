@@ -43,6 +43,8 @@ metrics:
     metricRelabelings: {}
     # -- Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)
     namespace: ""
+    # -- The path used by Prometheus to scrape metrics
+    path: "/metrics"
     # -- RelabelConfigs to apply to samples before scraping
     relabelings: {}
     # -- Timeout after which the scrape is ended
@@ -64,6 +66,8 @@ metrics:
     metricRelabelings: {}
     # -- Namespace for the ServiceMonitor Resource (defaults to the Release Namespace)
     namespace: ""
+    # -- The path used by Prometheus to scrape metrics
+    path: "/metrics"
     # -- RelabelConfigs to apply to samples before scraping
     relabelings: {}
     # -- Timeout after which the scrape is ended
